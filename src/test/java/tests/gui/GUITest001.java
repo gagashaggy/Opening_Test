@@ -1,10 +1,18 @@
-package tests.gui_tests;
+/**
+ * Created on 25 Apr, 2020
+ */
+package tests.gui;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class GUITest extends GUITestsHelper {
+/**
+ * Пример GUI-теста
+ *
+ * @author vmohnachev
+ */
+public class GUITest001 extends GUITestsHelper {
 
     /**
      * 2. UI тестирование
@@ -17,7 +25,7 @@ public class GUITest extends GUITestsHelper {
      * · перейти на сайт https://www.open.ru
      * · проверить в блоке «Курс обмена в интернет-банке», что курс продажи больше курса покупки, для USD и для EUR.
      */
-    @Test(description = "UI тестирование")
+    @Test(description = "UI-тест 001")
     public void test001() {
         final String link = "https://www.google.com/";
         final String XPath_Google_Search_Field = "//input[@type='text']";

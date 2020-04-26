@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SeleniumSpectator" parallel="classes">
-    <test name="OnlineChecking">
+<suite name="Bank Opening GUI-tests" parallel="classes">
+    <test name="GUITest001">
         <classes>
-            <class name="tests.gui_tests.GUITest">
+            <class name="tests.gui.GUITest001">
                 <methods>
                     <include name="test(.)+">
                     </include>

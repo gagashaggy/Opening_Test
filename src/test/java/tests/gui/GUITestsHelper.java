@@ -1,4 +1,7 @@
-package tests.gui_tests;
+/**
+ * Created on 25 Apr, 2020
+ */
+package tests.gui;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -7,13 +10,51 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import tests.TestHelper;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
+/**
+ * Класс, общий для всех GUI-тестов
+ *
+ * @author vmohnachev
+ */
 public class GUITestsHelper extends TestHelper {
+
+    // объект для записи логов в файл
+    private FileWriter writer;
+
+    /**
+     * Создать файл лога
+     */
+    void createLogFile() {
+        File logsDir = new File(WebDriverRunner.driver().config().reportsFolder() + "\\" + getLogsPath());
+        logsDir.mkdirs();
+        try {
+            writer = new FileWriter(new File(WebDriverRunner.driver().config().reportsFolder()
+                    + "\\" + getLogsPath() + this.getClass().getName() + "_"
+                    + new SimpleDateFormat("HH.mm.ss").format(new Date()) + ".txt"), true);
+        }
+        catch (IOException e) {
+            logDebug("Не удалось создать файл лога");
+        }
+    }
+
+    @Override
+    protected void log(String logRecord) {
+        logDebug(logRecord);
+        try {
+            writer.write(logRecord + "\n");
+            writer.flush();
+        } catch (IOException e) {
+            logDebug("Не удалось записать строку в файл");
+        }
+    }
 
     @BeforeClass
     public void openBrowser(){
