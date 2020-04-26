@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Bank Opening API-tests" parallel="classes">
+    <test name="APITest001">
+        <classes>
+            <class name="tests.api.APITest001">
+                <methods>
+                    <include name="test(.)+">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="APITest002">
+        <classes>
+            <class name="tests.api.APITest002">
+                <methods>
+                    <include name="test(.)+">
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

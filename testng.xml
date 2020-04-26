@@ -3,6 +3,6 @@
 <suite verbose="1" name="Bank Opening tests">
     <suite-files>
         <suite-file path="src/test/conf/testng_gui.xml"/>
-<!--        <suite-file path="src/test/conf/testng_api.xml"/>-->
+        <suite-file path="src/test/conf/testng_api.xml"/>
     </suite-files>
 </suite>
